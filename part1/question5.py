@@ -1,15 +1,15 @@
 ################################################################################
 #     ____                          __     _                           ______
 #    / __ \  __  __  ___    _____  / /_   (_)  ____    ____           / ____/
-#   / / / / / / / / / _ \  / ___/ / __/  / /  / __ \  / __ \         /___ \  
-#  / /_/ / / /_/ / /  __/ (__  ) / /_   / /  / /_/ / / / / /        ____/ /  
-#  \___\_\ \__,_/  \___/ /____/  \__/  /_/   \____/ /_/ /_/        /_____/   
-#                                                                            
+#   / / / / / / / / / _ \  / ___/ / __/  / /  / __ \  / __ \         /___ \
+#  / /_/ / / /_/ / /  __/ (__  ) / /_   / /  / /_/ / / / / /        ____/ /
+#  \___\_\ \__,_/  \___/ /____/  \__/  /_/   \____/ /_/ /_/        /_____/
+#
 #  Question 5
 ################################################################################
 #
 # Instructions:
-# This questions continues to use the database we worked with in Question 4. In 
+# This questions continues to use the database we worked with in Question 4. In
 # this question, we will made some modifications ot the table.
 
 # Part 5.A:
@@ -20,17 +20,22 @@
 
 sql_create_favorite_foods = """
 
-Your SQL here.
+CREATE TABLE  favorite_foods (
+  food_id INTEGER,
+  name TEXT,
+  vegetarian BOOLEAN
+);
 
 """
 
 # Part 5.B:
 # Alter the animals and people tables by adding a new column to each called 'favorite_food_id'
-# The test suite will verify the new changes by inserting some new rows. 
+# The test suite will verify the new changes by inserting some new rows.
 
 sql_alter_tables_with_favorite_food = """
 
-Your SQL here.
+ALTER TABLE animals ADD COLUMN favorite_food_id integer;
+ALTER TABLE people ADD COLUMN favorite_food_id integer;
 
 """
 
@@ -40,6 +45,11 @@ Your SQL here.
 
 sql_select_all_vegetarian_pets = """
 
-Your SQL here.
+SELECT an.name AS name_animal,
+       faf.name
+FROM   animals AS an
+       INNER JOIN favorite_foods AS faf
+               ON faf.food_id = an.favorite_food_id
+WHERE  faf.vegetarian = 1;
 
 """
