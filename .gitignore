@@ -197,3 +197,7 @@ replay_pid*
 
 # IntelliJ
 part2/.idea
+part2/bin
+.project
+
+
