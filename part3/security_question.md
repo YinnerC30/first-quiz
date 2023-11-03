@@ -1,75 +1,75 @@
-# Solución
+# Solution
 
-Lo que haría para que mi sistema sea seguro teniendo en cuenta el Top 10 de OWASP, seria implementar las siguientes acciones:
+What I would do to make my system secure taking into account the OWASP Top 10, would be to implement the following actions:
 
-## Implementaciones generales
+## General implementations
 
-- Realizar un modelado de amenazas y análisis de riesgos para identificar los requisitos de seguridad necesarios para el diseño de la aplicación.
-- Utilizar patrones y principios de diseño seguros y arquitecturas de referencia.
-- Incluir la seguridad en todas las etapas del ciclo de vida del desarrollo de software.
-- Verificar que las aplicaciones cuenten con actualizaciones y parches, incluyendo las librerías de código.
-- Configurar los controles de seguridad a valores seguros.
-- Deshabilitar características innecesarias como puertos, servicios, páginas, cuentas, etc.
-- Realizar un proceso de fortalecimiento para un entorno asegurado.
-- Mantener actualizaciones y parches, incluyendo las librerías de código.
-- Verificar que los registros se generen en un formato fácil de procesar por las herramientas de gestión de registros.
-- Asegurarse de que los datos de registros son correctamente codificados para prevenir inyecciones o ataques en el sistema de monitoreo o registros.
+- Perform threat modeling and risk analysis to identify security requirements necessary for application design.
+- Use secure design patterns and principles and reference architectures.
+- Include security in all stages of the software development life cycle.
+- Verify that applications have updates and patches, including code libraries.
+- Configure security controls to safe values.
+- Disable unnecessary features such as ports, services, pages, accounts, etc.
+- Perform a hardening process for a secured environment.
+- Maintain updates and patches, including code libraries.
+- Verify that logs are generated in a format that is easy to process by log management tools.
+- Ensure that log data is properly encrypted to prevent injections or attacks on the monitoring system or logs.
 
-Nota: Riesgos que se logran mitigar:
+Note: Risks that are successfully mitigated:
 
-- A04:2021 - Diseño Inseguro
-- A05:2021 - Configuración de Seguridad Incorrecta
-- A06:2021 - Componentes Vulnerables y Desactualizados
-- A08:2021 - Fallas en el Software y en la Integridad de los Datos
-- A09:2021 - Fallas en el Registro y Monitoreo
+- A04:2021 - Unsafe Design
+- A05:2021 - Incorrect Security Configuration
+- A06:2021 - Vulnerable and Outdated Components
+- A08:2021 - Software and Data Integrity Failures
+- A09:2021 - Logging and Monitoring Failures
 
-## Implementaciones en aplicaciones móviles
+## Implementations in mobile applications
 
-- Cada usuario debe usar un método de autenticación y autorización, esto con el fin
-  de que solo usuarios registrados, puedan entrar al sistema y acceder unicamente a
-  los recursos que se le han asignado.
-- Implementar autenticación multifactor para aumentar la seguridad.
+- Each user must use an authentication and authorization method, so that only registered users can enter the system and only
+  only registered users can enter the system and access only the resources assigned to them.
+  resources assigned to them.
+- Implement multifactor authentication to increase security.
 
-Nota: Riesgo que se logra mitigar:
+Note: Risk that can be mitigated:
 
-- A01:2021 - Pérdida de Control de Acceso
+- A01:2021 - Loss of Access Control.
 
-## Implementaciones en el servicio Backend
+## Backend service implementations
 
-- El backend debe realizar criptografía ya que es donde se almacenan y procesan los datos sensibles.
-- Validar todas las entradas de usuario y evitar la exposición de identificadores de sesión en la URL.
-- Utilizar listas blancas de URL y puertos permitidos para limitar las solicitudes permitidas.
+- The backend must perform cryptography as this is where sensitive data is stored and processed.
+- Validate all user input and avoid exposing session identifiers in the URL.
+- Use whitelisting of allowed URLs and ports to limit allowed requests.
 
-Nota: Riesgos que se logran mitigar:
+Note: Risks that are successfully mitigated:
 
-- A02:2021 - Fallas Criptográficas
-- A10:2021 - Falsificación de Solicitudes del Lado del Servidor
+- A02:2021 - Cryptographic Failures.
+- A10:2021 - Forgery of Server Side Requests
 
-## Implementaciones en la base de datos
+## Database implementations
 
-- Cada usuario debe usar un método de autenticación y autorización, esto con el fin
-  de que solo usuarios registrados, puedan entrar al sistema y acceder unicamente a
-  los recursos que se le han asignado.
-- Limitar los privilegios de la cuenta de la base de datos utilizada por la aplicación.
-- Utilizar contraseñas seguras y complejas, y evitar el almacenamiento de contraseñas en texto plano.
-- Utilizar parámetros preparados y consultas parametrizadas en lugar de concatenar cadenas de consulta SQL.
+- Each user must use an authentication and authorization method, so that only registered users can log in to the system and access the system.
+  only registered users can enter the system and access only the resources assigned to them.
+  resources assigned to them.
+- Limit the privileges of the database account used by the application.
+- Use secure and complex passwords, and avoid storing passwords in plain text.
+- Use prepared parameters and parameterized queries instead of concatenating SQL query strings.
 
-Nota: Riesgos que se logran mitigar:
+Note: Risks that can be mitigated:
 
-- A01:2021 - Pérdida de Control de Acceso
-- A07:2021 - Fallas de Identificación y Autenticación
-- A03:2021 - Inyección
+- A01:2021 - Loss of Access Control.
+- A07:2021 - Identification and Authentication Failures
+- A03:2021 - Injection
 
-## Implementaciones en el servicio Frontend
+## Frontend service implementations
 
-- Validar todas las entradas de usuario, incluyendo formularios web, cookies y parámetros de URL.
-- Utilizar bibliotecas de validación de entrada y salida de datos.
-- Utilizar contraseñas seguras y complejas, y evitar el almacenamiento de contraseñas en texto plano.
-- Utilizar tokens de sesión seguros y configurar tiempos de expiración adecuados.
-- Validar todas las entradas de usuario y evitar la exposición de identificadores de sesión en la URL.
-- Realizar pruebas de seguridad y verificaciones manuales para identificar posibles debilidades en la identificación y autenticación.
+- Validate all user input, including web forms, cookies and URL parameters.
+- Use input and output validation libraries.
+- Use strong and complex passwords, and avoid storing passwords in plain text.
+- Use secure session tokens and set appropriate expiration times.
+- Validate all user input and avoid exposing session identifiers in the URL.
+- Perform security tests and manual checks to identify possible weaknesses in identification and authentication.
 
-Nota: Riesgos que se logran mitigar:
+Note: Risks that are successfully mitigated:
 
-- A03:2021 - Inyección
-- A07:2021 - Fallas de Identificación y Autenticación
+- A03:2021 - Injection
+- A07:2021 - Identification and Authentication Failures
