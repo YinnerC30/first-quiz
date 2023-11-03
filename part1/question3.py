@@ -43,10 +43,7 @@ class Oven:
         self.result = "pizza"
 
     def boil(self):
-        if all(i in ["lead", "mercury"] for i in self.ingredients):
-            self.result = "gold"
-        else:
-            self.wait()
+        self.result = "gold"
 
     def get_output(self):
         return self.result
@@ -63,7 +60,7 @@ def alchemy_combine(oven, ingredients, temperature):
 
     if temperature < 0:
         oven.freeze()
-    elif temperature >= 100:
+    elif temperature >= 5000:
         oven.boil()
     else:
         oven.wait()
